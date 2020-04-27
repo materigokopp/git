@@ -12,6 +12,10 @@ test_expect_success 'setup full repo' '
 	test_oid_init
 '
 
+test_expect_success POSIXPERM 'tweak umask for modebit tests' '
+	umask 022
+'
+
 test_expect_success 'verify graph with no graph file' '
 	cd "$TRASH_DIRECTORY/full" &&
 	git commit-graph verify
